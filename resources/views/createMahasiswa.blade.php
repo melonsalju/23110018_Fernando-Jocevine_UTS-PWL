@@ -11,7 +11,7 @@
         <form method="post" action="@if(isset($mahasiswa))
             {{ route('mahasiswa.update', ['id' => $mahasiswa['id']]) }}
         @else
-            {{ route('mahasiswa.create') }}
+            {{ route('mahasiswa.store') }}
         @endif">
             @csrf
             @if(isset($mahasiswa))

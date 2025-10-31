@@ -15,28 +15,20 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">NIM</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Tempat Lahir</th>
-                    <th scope="col">Tanggal Lahir</th>
-                    <th scope="col">Jurusan</th>
-                    <th scope="col">Angkatan</th>
+                    <th scope="col">Kode</th>
+                    <th scope="col">Nama Matakuliah</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($mahasiswas as $mahasiswa)
+                @foreach ($matkuls as $matkul)
                 <tr>
-                    <td scope="row">{{$mahasiswa['id']}}</td>
-                    <td>{{$mahasiswa['NIM']}}</td>
-                    <td>{{$mahasiswa['name']}}</td>
-                    <td>{{$mahasiswa['tempat_lahir']}}</td>
-                    <td>{{$mahasiswa['tanggal_lahir']}}</td>
-                    <td>{{$mahasiswa['jurusan']}}</td>
-                    <td>{{$mahasiswa['angkatan']}}</td>
+                    <td scope="row">{{$matkul['id']}}</td>
+                    <td>{{$matkul['nama_matakuliah']}}</td>
+                    <td>{{$matkul['kode']}}</td>
                     <td>
-                        <a href="{{ route('mahasiswa.show', $mahasiswa['id']) }}">Edit</a>
-                        <a href="{{ route('mahasiswa.delete', $mahasiswa['id']) }}">Delete</a>
+                        <a href="{{ route('matkul.show', $matkul['id']) }}">Edit</a>
+                        <a href="{{ route('matkul.delete', $matkul['id']) }}">Delete</a>
                     </td>
                 </tr>
                 @endforeach

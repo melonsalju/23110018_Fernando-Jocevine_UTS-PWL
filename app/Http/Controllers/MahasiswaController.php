@@ -20,7 +20,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        return view('createMahasiswa');
+        return view('createMahasiswa', ['mahasiswa' => null]);
     }
 
     /**
@@ -45,30 +45,41 @@ class MahasiswaController extends Controller
      */
     public function show($id)
     {
-        
+        $mahasiswa = Mahasiswa::find($id);
+        return view('createMahasiswa', ['mahasiswa' => $mahasiswa]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        
+        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa->name = $request->name;
+        $mahasiswa->nim = $request->NIM;
+        $mahasiswa->tempat_lahir = $request->tempat_lahir;
+        $mahasiswa->tanggal_lahir = $request->tanggal_lahir;
+        $mahasiswa->jurusan = $request->jurusan;
+        $mahasiswa->angkatan = $request->angkatan;
+
+        $mahasiswa->save();
+
+        return redirect()->route('mahasiswa.index');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
-    {
-        
-    }
+    public function update(Request $request, $id) {}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        
+        $mahasiswa = Mahasiswa::find($id);
+        $mahasiswa->delete();
+
+        return redirect()->route('mahasiswa.index');
     }
 }
