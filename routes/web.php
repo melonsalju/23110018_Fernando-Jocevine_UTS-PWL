@@ -26,7 +26,7 @@ Route::group(['prefix' => 'matkul'], function () {
 });
 
 Route::group(['prefix' => 'absensi'], function () {
-    Route::get('/{matkul_id?}', [App\Http\Controllers\AbsensiController::class, 'index'])->name('absensi.index');
+    Route::get('/', [App\Http\Controllers\AbsensiController::class, 'index'])->name('absensi.index');
     Route::get('/create', [App\Http\Controllers\AbsensiController::class, 'create'])->name('absensi.create');
     Route::post('/store', [App\Http\Controllers\AbsensiController::class, 'store'])->name('absensi.store');
     Route::get('/show/{id}', [App\Http\Controllers\AbsensiController::class, 'show'])->name('absensi.show');
