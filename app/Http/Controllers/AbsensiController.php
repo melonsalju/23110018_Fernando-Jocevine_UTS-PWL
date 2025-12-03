@@ -130,7 +130,7 @@ class AbsensiController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resffource in storage.
      */
     public function update(Request $request, string $id)
     {
